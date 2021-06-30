@@ -26,15 +26,17 @@
 <html>
 <head>
     <title>jsp Tags</title>
-    <%@include file="partials/head.jsp"%>
+    <%@include file="partials/head.jsp" %>
 </head>
 <body>
-<%@include file="partials/navbar.jsp"%>
+<%@include file="partials/navbar.jsp" %>
 <h1 style="background-color: green">Hello There!</h1>
 <%--this comment will be seen in the dev tools--%>
-<h2>The local count is : <%=localCount%></h2>
-<h2>The instance count is: <%=instanceCount%></h2>
+<h2>The local count is : <%=localCount%>
+</h2>
+<h2>The instance count is: <%=instanceCount%>
+</h2>
 
-<%@include file="partials/national-parks.jsp"%>
+<%@include file="partials/national-parks.jsp" %>
 </body>
 </html>
