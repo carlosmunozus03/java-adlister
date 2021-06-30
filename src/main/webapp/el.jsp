@@ -1,0 +1,52 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: carlosmunoz
+  Date: 6/30/21
+  Time: 10:46 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
+<%
+    //    setting request attribute (this would be done in a servlet)
+    request.setAttribute("userRole", "admin");
+    String message;
+    switch (request.getAttribute("userRole").toString()) {
+        case "admin":
+            message = "administrator";
+            break;
+        case "s_admin":
+            message = "super administrator";
+            break;
+        case "user_1":
+            message = "active user";
+            break;
+        default:
+            message = "uknow status";
+    }
+    request.setAttribute("userRoleMessage", message);
+
+// This will be written in you servlet as well
+//    User u1 = new User("jaybird13", 27, "jay@codeup.com");
+
+//    request.setAttribute("user", u1);
+%>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<h1>${userRole}</h1>
+<h2>${param.name}</h2>
+<h3>User Status: ${userRoleMessage}</h3>
+
+<%--We would use the following syntax bellow to refer to our user instance that we have set in our servlet--%>
+
+<%--<h2>${user.username}</h2>--%>
+<%--<p>User Age: ${user.age}</p>--%>
+<%--<p>${user.email}</p>--%>
+
+
+</body>
+</html>
