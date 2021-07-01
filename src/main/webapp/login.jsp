@@ -19,10 +19,10 @@
 %>
 
 <html>
-<head>
-    <title>Login</title>
-    <%@include file="partials/head.jsp" %>
-</head>
+<%--Head Include--%>
+<jsp:include page="partials/head.jsp">
+    <jsp:param name="title" value="Login"/>
+</jsp:include>
 <body>
 <%@include file="partials/navbar.jsp" %>
 <h1>Hello! Please log in!</h1>
