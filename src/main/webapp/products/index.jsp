@@ -2,15 +2,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>View Ads</title>
+    <title>View Products</title>
 </head>
 <body>
 <h1>Here are all the products:</h1>
 
-<c:forEach var="ad" items="${ads}">
-    <div class="ad">
-        <h2>${ad.title}</h2>
-        <p>${ad.description}</p>
+<c:forEach var="product" items="${products}">
+    <div class="product">
+        <h2>${product.name}</h2>
+        <p>Price: $ ${product.price}</p>
     </div>
 </c:forEach>
 
