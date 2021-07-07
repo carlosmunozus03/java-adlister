@@ -2,12 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListProducts implements Products {
-
     private List<Product> products = new ArrayList<>();
 
     public ListProducts() {
         insert(new Product("Switch Pro Controller", 69.99));
-        insert(new Product("Yoshi's Crafted Word", 59.99));
+        insert(new Product("Yoshi's Crafted World", 59.99));
         insert(new Product("HORI Hayabusa 4 Arcade Stick for Nintendo Switch", 149.99));
     }
 
