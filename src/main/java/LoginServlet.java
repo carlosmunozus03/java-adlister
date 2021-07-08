@@ -1,4 +1,3 @@
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,21 +9,23 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        if (request.getSession().getAttribute("user") != null) {
+            response.sendRedirect("/profile");
+            return;
+        }
+
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-//below code: session is the variable that is grabbing the current session
+        boolean validAttempt = username.equals("admin") && password.equals("password");
+        boolean isLoggedIn = username.equals("jaycodeup") && password.equals("test");
+
         HttpSession session = request.getSession();
 
-        boolean validAttempt = username.equals("admin") && password.equals("password");
-
-        if (validAttempt) {
-//            below code: assigns the user parameter to the username variable, which is passed onto the jsp via the session
-//            only terminated when told to or when the browser is closed
+        if (isLoggedIn) {
             session.setAttribute("user", username);
             response.sendRedirect("/profile");
         } else {
