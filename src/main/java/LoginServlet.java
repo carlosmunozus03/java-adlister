@@ -1,4 +1,3 @@
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,11 +10,14 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("isAdmin") != null) {
-            response.sendRedirect("/secret-admin-page.jsp");
+            response.sendRedirect("/WEB-INF/secret-admin-page.jsp");
             return;
         }
 
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        // we could have another check against another attribute to check for regular users.
+        // we have a user attribute that we set, and we would create a new if statement to look for that session attribute
+
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -47,6 +49,9 @@ public class LoginServlet extends HttpServlet {
 //        session.getAttribute("darkMode");
 //        String darkSelected = (String) session.getAttribute("darkMode");
 //
+
+
+        // Mainly used for logging out of an application.
 //        // to remove an attribute
 //        session.removeAttribute("darkMode");
 //
